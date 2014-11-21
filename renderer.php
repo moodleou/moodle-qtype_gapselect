@@ -70,9 +70,14 @@ class qtype_gapselect_renderer extends qtype_elements_embedded_in_question_text_
             }
         }
 
+        if ($question->nothingword || $question->nothingword === '0') {
+            $nothingword = format_string($question->nothingword);
+        } else {
+            $nothingword = get_string('choosedots');
+        }
+
         $selecthtml = html_writer::select($selectoptions, $qa->get_qt_field_name($fieldname),
-                $value, get_string('choosedots'), $attributes) . ' ' . $feedbackimage;
+                $value, $nothingword, $attributes) . ' ' . $feedbackimage;
         return html_writer::tag('span', $selecthtml, array('class' => 'control '.$groupclass));
     }
-
 }

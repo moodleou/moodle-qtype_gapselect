@@ -55,7 +55,7 @@ class backup_qtype_gapselect_plugin extends backup_qtype_plugin {
         $gapselect = new backup_nested_element('gapselect', array('id'), array(
             'shuffleanswers', 'correctfeedback', 'correctfeedbackformat',
             'partiallycorrectfeedback', 'partiallycorrectfeedbackformat',
-            'incorrectfeedback', 'incorrectfeedbackformat', 'shownumcorrect'));
+            'incorrectfeedback', 'incorrectfeedbackformat', 'shownumcorrect', 'nothingword'));
 
         // Now the own qtype tree.
         $pluginwrapper->add_child($gapselect);

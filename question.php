@@ -46,6 +46,8 @@ class qtype_gapselect_question extends qtype_gapselect_question_base {
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_gapselect_choice {
+    /** @var string if not blank, this word is used instead of get_string('choosedots'). */
+    public $nothingword;
     public $text;
     public $selectgroup;
 

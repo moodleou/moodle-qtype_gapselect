@@ -38,6 +38,15 @@ class qtype_gapselect_edit_form extends qtype_gapselect_edit_form_base {
     /** @var array HTML tags allowed in answers (choices). */
     protected $allowedhtmltags = array();
 
+    protected function definition_answer_choice(MoodleQuickForm $mform) {
+
+        $mform->addElement('text', 'nothingword', get_string('nothingword', 'qtype_gapselect'));
+        $mform->setType('nothingword', PARAM_TEXT);
+        $mform->addHelpButton('nothingword', 'nothingword', 'qtype_gapselect');
+
+        parent::definition_answer_choice($mform);
+    }
+
     public function qtype() {
         return 'gapselect';
     }

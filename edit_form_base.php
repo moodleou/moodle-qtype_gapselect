@@ -115,7 +115,7 @@ class qtype_gapselect_edit_form_base extends question_edit_form {
         $this->add_interactive_settings(true, true);
     }
 
-    protected function definition_answer_choice(&$mform) {
+    protected function definition_answer_choice($mform) {
         $mform->addElement('header', 'choicehdr', get_string('choices', 'qtype_gapselect'));
         $mform->setExpanded('choicehdr', 1);
 

@@ -42,6 +42,11 @@ class qtype_gapselect extends qtype_gapselect_base {
         return $choice['choicegroup'];
     }
 
+    protected function initialise_question_instance(question_definition $question, $questiondata) {
+        parent::initialise_question_instance($question, $questiondata);
+        $question->nothingword = $questiondata->options->nothingword;
+    }
+
     protected function make_choice($choicedata) {
         return new qtype_gapselect_choice($choicedata->answer, $choicedata->feedback);
     }
@@ -65,6 +70,7 @@ class qtype_gapselect extends qtype_gapselect_base {
 
         $question->shuffleanswers = $format->trans_single(
                 $format->getpath($data, array('#', 'shuffleanswers', 0, '#'), 1));
+        $question->nothingword = $format->getpath($data, array('#', 'nothingword', 0, '#'), '');
 
         if (!empty($data['#']['selectoption'])) {
             // Modern XML format.
@@ -104,6 +110,8 @@ class qtype_gapselect extends qtype_gapselect_base {
 
         $output .= '    <shuffleanswers>' . $question->options->shuffleanswers .
                 "</shuffleanswers>\n";
+        $output .= '    <nothingword>' . $question->options->nothingword .
+                "</nothingword>\n";
 
         $output .= $format->write_combined_feedback($question->options,
                                                     $question->id,
