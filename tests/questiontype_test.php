@@ -41,7 +41,7 @@ class qtype_gapselect_test extends question_testcase {
     protected $qtype;
 
     protected function setUp() {
-        $this->qtype = question_bank::get_qtype('gapselect');;
+        $this->qtype = question_bank::get_qtype('gapselect');
     }
 
     protected function tearDown() {
@@ -91,6 +91,7 @@ class qtype_gapselect_test extends question_testcase {
 
         $gapselect->options = new stdClass();
         $gapselect->options->shuffleanswers = true;
+        $gapselect->options->nothingword = null;
 
         test_question_maker::set_standard_combined_feedback_fields($gapselect->options);
 
@@ -256,6 +257,7 @@ class qtype_gapselect_test extends question_testcase {
 
         $qdata->options = new stdClass();
         $qdata->options->shuffleanswers = 1;
+        $qdata->options->nothingword = null;
         $qdata->options->correctfeedback = '<p>Your answer is correct.</p>';
         $qdata->options->correctfeedbackformat = FORMAT_MOODLE;
         $qdata->options->partiallycorrectfeedback = '<p>Your answer is partially correct.</p>';
@@ -295,6 +297,7 @@ class qtype_gapselect_test extends question_testcase {
     <penalty>0.3333333</penalty>
     <hidden>0</hidden>
     <shuffleanswers>1</shuffleanswers>
+    <nothingword></nothingword>
     <correctfeedback format="moodle_auto_format">
       <text><![CDATA[<p>Your answer is correct.</p>]]></text>
     </correctfeedback>

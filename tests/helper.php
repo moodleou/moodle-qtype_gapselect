@@ -49,6 +49,7 @@ class qtype_gapselect_test_helper {
         $gapselect->qtype = question_bank::get_qtype('gapselect');
 
         $gapselect->shufflechoices = true;
+        $gapselect->nothingword = null;
 
         test_question_maker::set_standard_combined_feedback_fields($gapselect);
 
@@ -88,6 +89,7 @@ class qtype_gapselect_test_helper {
         $gapselect->qtype = question_bank::get_qtype('gapselect');
 
         $gapselect->shufflechoices = true;
+        $gapselect->nothingword = null;
 
         test_question_maker::set_standard_combined_feedback_fields($gapselect);
 
